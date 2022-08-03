@@ -25,11 +25,15 @@ const FUMHHValidation = (data: FormData) => {
     return errorArray;
   }
 
-  const validateDualPopInformationArray = [
-    performanceMeasureArray?.[0].filter((pm) => {
-      return pm?.label === "Age 65 and older";
-    }),
-  ];
+  let validateDualPopInformationArray: any[] = [];
+
+  for (var i = 0; i < performanceMeasureArray.length; i++) {
+    validateDualPopInformationArray.push(
+      performanceMeasureArray?.[i].filter((pm) => {
+        return pm?.label === "Age 65 and older";
+      })
+    );
+  }
 
   const age65PlusIndex = 0;
 
